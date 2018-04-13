@@ -1,4 +1,4 @@
-var Discord = require('discord.io');
+/*var Discord = require('discord.io');
 var logger = require('winston');
 var auth = require('./auth.json');
 // Configure logger settings
@@ -38,6 +38,26 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             // Just add any case commands if you want to..
          }
      }
+});*/
+
+var Discord = require('discord.io');
+ 
+var bot = new Discord.Client({
+    token: "NDM0MTc4OTk0ODQ2MzAyMjE5.DbG83Q.ndQ36IeVj8pFyI008z_yHn-qMUM",
+    autorun: true
+});
+ 
+bot.on('ready', function() {
+    console.log('Logged in as %s - %s\n', bot.username, bot.id);
+});
+ 
+bot.on('message', function(user, userID, channelID, message, event) {
+    if (message === "ping") {
+        bot.sendMessage({
+            to: channelID,
+            message: "pong"
+        });
+    }
 });
 
 /*const Discord = require('discord.js');
