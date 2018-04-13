@@ -1,4 +1,4 @@
-/*var Discord = require('discord.io');
+var Discord = require('discord.io');
 var logger = require('winston');
 var auth = require('./auth.json');
 // Configure logger settings
@@ -12,12 +12,17 @@ var bot = new Discord.Client({
    token: auth.token,
    autorun: true
 });
+bot.connect()
 bot.on('ready', function (evt) {
+console.log("hey");
     logger.info('Connected');
     logger.info('Logged in as: ');
     logger.info(bot.username + ' - (' + bot.id + ')');
 });
 console.log('running');
+console.log(bot.presenceStatus);
+bot.connect();
+console.log(bot.connected);
 bot.on('message', function (user, userID, channelID, message, evt) {
     // Our bot needs to know if it will execute a command
     // It will listen for messages that will start with `!`
@@ -38,10 +43,17 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             // Just add any case commands if you want to..
          }
      }
-});*/
+});
 
-var Discord = require('discord.io');
+/*var Discord = require('discord.io');
+var logger = require('winston');
  
+ // Configure logger settings
+logger.remove(logger.transports.Console);
+logger.add(logger.transports.Console, {
+    colorize: true
+});
+logger.level = 'debug';
 var bot = new Discord.Client({
     token: "NDM0MTc4OTk0ODQ2MzAyMjE5.DbG83Q.ndQ36IeVj8pFyI008z_yHn-qMUM",
     autorun: true
@@ -58,7 +70,7 @@ bot.on('message', function(user, userID, channelID, message, event) {
             message: "pong"
         });
     }
-});
+});*/
 
 /*const Discord = require('discord.js');
 const client = new Discord.Client();
